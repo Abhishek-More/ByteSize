@@ -1,5 +1,4 @@
-@tailwind base;
-@tailwind components;
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Montserrat+Alternates&family=Poppins:wght@500&display=swap');@tailwind components;
 @tailwind utilities;
 
 html,
