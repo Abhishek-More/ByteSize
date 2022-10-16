@@ -44,7 +44,7 @@ a {
 }
 
 .linear-wipe {
-    animation: flow 15s ease-in-out infinite;
+    animation: flow 10s ease-in-out infinite;
     background: linear-gradient(-60deg, #ff007b, #1d0a3f);
     background-size: 200%;
     padding-left: 1rem;
@@ -73,6 +73,8 @@ a {
         background-position: 0 50%;
     }
 }
+
+
 
 @media (prefers-color-scheme: dark) {
   html {
