@@ -6,9 +6,7 @@ import Link from 'next/link'
 export default function Home() {
   
   return (
-
     <div>
-
       <div className='flex items-center justify-between py-1 px-10'>
       <div className = 'flex items-center '>
         <div className= 'pb-2 pt-1'> 
