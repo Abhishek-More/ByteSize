@@ -35,7 +35,7 @@ export default function Compress() {
         let content = arr[iter];
         display.innerHTML = content;
         iter += 1;
-      }, 20)
+      }, 33)
     };
     reader.readAsText(selectedFile)
     console.log(data)
@@ -83,7 +83,7 @@ export default function Compress() {
           <div className = 'text-xl font-OP font-md text-indigo-900 w-3/4 whitespace-pre-line pt-8'> Upload a compressed text file here to view it's contents... </div>
           <div className="flex space-x-8 items-center pt-12">
               <label className=" px-8 py-4 bg-indigo-900 text-white rounded-md cursor-pointer font-OP text-md flex justify-start">
-                <input className="hidden" type="file" name="file" onChange={changeHandler}/>
+                <input className="hidden" type="file" name="file" accept="text/plain" onChange={changeHandler}/>
                 Select Text File
               </label>
               <div className="">
