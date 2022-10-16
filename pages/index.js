@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 
 import React from 'react'
 import Wave from 'react-wavify'
+import Link from 'next/link'
 
 export default function Home() {
   
@@ -26,13 +27,19 @@ export default function Home() {
       <div className = 'h-1 bg-gradient-to-r from-purple-500 to-pink-500'>
       </div>
 
-        <p className='text-[70px] text-center pt-64 font-poppins font-medium text-indigo-900'>Redefining Video Storage.</p>
+        <p className='text-[70px] text-center pt-64 font-poppins font-medium text-indigo-900 linear-wipe'>Redefining Video Storage.</p>
         <p className='text-center text-2xl pt-4 font-semibold font-OP text-indigo-900'>ACSII-based video compression</p>
    
       
+
+
       <div className= 'flex justify-center space-x-10 pt-24'>
+      <Link href="/compress">
         <button className = 'shadow-md hover:shadow border-2 border-indigo-100 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg text-indigo-900'>Compress Video</button>
-         <button className = 'shadow-md hover:shadow border-2 border-indigo-100 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg text-indigo-900'>View Video</button>
+         </Link>
+          <Link href="/viewer">
+            <button className = 'shadow-md hover:shadow border-2 border-indigo-100 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg text-indigo-900'>View Video</button>
+          </Link>
       </div>
       
       <div className= 'bottom-0 absolute w-screen translate-y-24 opacity-75'>
