@@ -11,15 +11,16 @@ const config = {
   bucketName: 'bytesize',
   dirName: 'videos', 
   region: 'us-east-2',
-  accessKeyId: 'AKIA4PDABZIF3WRI5P5G',
-  secretAccessKey: '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',
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY,
 }
 
 const s3 = new S3(config);
 
 export default function Compress() {
   const toast = useToast()
-  let [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [loadingText, setLoadingText] = useState("")
   const [selectedFile, setSelectedFile] = useState();
 	const [isFilePicked, setIsFilePicked] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -27,8 +28,8 @@ export default function Compress() {
 
 
   AWS.config.update({
-    accessKeyId: 'AKIA4PDABZIF3WRI5P5G',
-    secretAccessKey: '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',
+    accessKeyId: process.env.ACCESS_KEY_ID,
+    secretAccessKey: process.env.SECRET_ACCESS_KEY,
   });
 
 
@@ -49,25 +50,32 @@ export default function Compress() {
         duration: 3000,
         isClosable: true,
       })
+
+      return
     }
 
     setLoading(true)
+    setLoadingText("Uploading Video to S3")
 
     s3.uploadFile(selectedFile)
     .then(data => {
       setSelectedFile(null)
       setIsFilePicked(false)
+      setLoadingText("Converting Video to Text")
       let key = data.key
       console.log(key)
-
-      setLoading(false)
-      toast({
-        title: 'Success uploading video!',
-        status: 'success',
-        position : 'bottom-right',
-        duration: 3000,
-        isClosable: true,
-      })
+      axios({
+        method: 'post',
+        url: 'http://localhost:5000/video_to_text',
+        data: {
+          bucketVideoKey: key,
+        }
+      }).then(function (response) {
+        key = response.data.bucketTextLocation;
+        setLoadingText("Downloading Text File")
+        handleDownload(key);
+        setLoading(false)
+      });
     })
     .catch(err => console.error(err));
 
@@ -119,16 +127,17 @@ export default function Compress() {
 
   return (
     <div className= ''>
-      <div className={`${loading ? "absolute" : "hidden"} left-0 right-0 top-0 bottom-0 items-center flex justify-center z-50`}>
-        <PacmanLoader
-          color='rgb(49 46 129)'
-          loading={loading}
-          size={25}
-          aria-label="Loading Spinner"
-          data-testid="loader"
-        />
+      <div className={`${loading ? "absolute" : "hidden"} left-0 right-0 top-0 bottom-0 items-center flex flex-col justify-center z-40`}>
+          <PacmanLoader
+            color='rgb(49 46 129)'
+            loading={loading}
+            size={25}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+          <p className="mt-8 text-center">{loadingText}</p>
       </div>
-      <div className='flex items-center justify-between py-1 px-10'>
+      <div className='flex items-center justify-between py-1 px-10 z-50'>
         <div className = 'flex items-center'>
           <div className= 'pb-2 pt-1'> 
             <Image
@@ -148,7 +157,7 @@ export default function Compress() {
       className = 'h-1 bg-gradient-to-r from-purple-500 to-pink-500'>
     </div>
 
-      <div className={`flex justify-center ${loading ? "blur-sm" : ""}`}>
+      <div className={`flex justify-center ${loading ? "blurred" : "unblurred"}`}>
         <div className="text-center">
           <p className="my-8 text-5xl font-poppins font-bold text-indigo-900 pt-24">Upload your video for compression</p>
           <p className="mb-8 text-xl font-OP font-md text-indigo-900">Submit any video and get a compressed text file containing your video content.</p>

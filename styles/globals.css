@@ -61,6 +61,25 @@ a {
   transition: 0.5s ease-in-out;
 }
 
+.blurred {
+  animation: image_blur 0.5s forwards; 
+}
+
+.unblurred {
+  animation: unblur 0.5s forwards; 
+}
+
+@keyframes image_blur {
+  0% { filter: blur(0px);}
+  100% { filter: blur(3px);}
+}
+
+
+@keyframes unblur {
+  0% { filter: blur(3px);}
+  100% { filter: blur(0px);}
+}
+
 @keyframes flow {
     0% {
         background-position: 0 50%;
