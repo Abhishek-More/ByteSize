@@ -45,25 +45,24 @@ export default function Compress() {
   return (
     <div className= ''>
       <div className='flex items-center justify-between py-1 px-10'>
-      <div className = 'flex items-center'>
-      <div className= 'pb-2 pt-1'> 
-          <Image
-        src="/Logo1.png"
-        alt="Picture of the author"
-        width={75}
-        height={50}
-        />
-        </div>
+        <div className = 'flex items-center'>
+          <div className= 'pb-2 pt-1'> 
+            <Image
+              src="/Logo1.png"
+              alt="Picture of the author"
+              width={75}
+              height={50}
+            />
+          </div>
           <Link href = "/">
-          <button className='text-2xl font-poppins px-1 text-indigo-900'>  <span class="font-bold">Byte</span><span className = "font-light">Size</span></button>
+            <button className='text-2xl font-poppins px-1 text-indigo-900'>  <span class="font-bold">Byte</span><span className = "font-light">Size</span></button>
           </Link>  
-      </div>
-      <a className='text-lg font-OP text-indigo-900 bg-pink-200 px-6 py-2 rounded-full' href="https://github.com/Abhishek-More/ByteSize">View on Github</a>
+        </div>
+      <a className='text-md font-OP text-pink-900 bg-purple-200 px-6 py-2 rounded-full' href="https://github.com/Abhishek-More/ByteSize">View on Github</a>
     </div>
-
-      <div 
-        className = 'h-1 bg-gradient-to-r from-purple-500 to-pink-500'>
-      </div>
+    <div 
+      className = 'h-1 bg-gradient-to-r from-purple-500 to-pink-500'>
+    </div>
 
       <div className="flex justify-center">
         <div className="text-center">
