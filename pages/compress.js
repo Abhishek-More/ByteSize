@@ -44,14 +44,16 @@ export default function Compress() {
 
   return (
     <div className= ''>
-      <div className='flex items-center justify-between py-2 px-10'>
+      <div className='flex items-center justify-between py-1 px-10'>
       <div className = 'flex items-center'>
+      <div className= 'pb-2 pt-1'> 
           <Image
-            src="/Logo.png"
-            alt="Picture of the author"
-            width={60}
-            height={60}
-          />
+        src="/Logo1.png"
+        alt="Picture of the author"
+        width={75}
+        height={50}
+        />
+        </div>
           <Link href = "/">
           <button className='text-2xl font-poppins px-1 text-indigo-900'>  <span class="font-bold">Byte</span><span className = "font-light">Size</span></button>
           </Link>  
@@ -87,7 +89,7 @@ export default function Compress() {
           {isFilePicked && <p className="mt-4 font-OP text-violet-400">Currently Selected: {selectedFile.name}</p>}
         </div>
       </div>
-
+      
 
     </div>
   )
