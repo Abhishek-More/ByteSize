@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
+      OP: ['Open Sans', 'sans-serif']
+    }
   },
   plugins: [],
 }
