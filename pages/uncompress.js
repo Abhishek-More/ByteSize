@@ -38,7 +38,7 @@ export default function Uncompress() {
 		setIsFilePicked(true);
 	};
 
-	const handleFileSubmit = () => {
+	const handleFileSubmit = (endpoint) => {
  
     if(!isFilePicked) {
       toast({
@@ -65,7 +65,7 @@ export default function Uncompress() {
       console.log(key)
       axios({
         method: 'post',
-        url: 'http://localhost:5000/text_to_video',
+        url: 'http://localhost:5000/' + endpoint,
         data: {
           bucketTextKey: key,
         }
@@ -174,9 +174,15 @@ export default function Uncompress() {
             <div className="">
               {
                 isFilePicked ?
-                <a onClick={handleFileSubmit} className="shadow-md hover:shadow border-2 px-8 py-4 bg-indigo-900 rounded-md cursor-pointer font-OP text-md text-white">Submit</a>
+                <div>
+                  <a onClick={() => handleFileSubmit('text_to_video')} className="shadow-md hover:shadow border-2 px-8 py-4 bg-indigo-900 rounded-md cursor-pointer font-OP text-md text-white">Submit</a>
+                  <a onClick={() => handleFileSubmit('text_to_video_color')} className="shadow-md hover:shadow border-2 px-8 py-4 ml-8 bg-indigo-900 rounded-md cursor-pointer font-OP text-md text-white">Submit with color</a>
+                </div>
                 :
-                <a onClick={handleFileSubmit} className="shadow-md hover:shadow border-2 border-indigo-900 px-8 py-4 rounded-md font-OP text-md">Submit</a>
+                <div>
+                  <a onClick={() => handleFileSubmit('text_to_video')} className="shadow-md hover:shadow border-2 border-indigo-900 px-8 py-4 rounded-md font-OP text-md cursor-pointer">Submit</a>
+                  <a onClick={() => handleFileSubmit('text_to_video_color')} className="shadow-md hover:shadow border-2 px-8 py-4 ml-8 border-indigo-900 rounded-md cursor-pointer font-OP text-md">Submit with color</a>
+                </div>
               }
             </div>
           </div>

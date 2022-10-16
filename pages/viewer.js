@@ -130,7 +130,7 @@ export default function Compress() {
         <div className=''>
           <div className="font-poppins font-bold text-indigo-900 pt-12 w-3/4 text-5xl">View Video</div>
           <div className = 'text-xl font-OP font-md text-indigo-900 w-3/4 whitespace-pre-line pt-8'> Upload a compressed text file here to view it's contents... </div>
-          <div className="flex space-x-8 items-center pt-12">
+          <div className="flex space-x-8 items-center pt-12 pb-12">
               <label className="shadow-md hover:shadow border-2 px-8 py-4 bg-indigo-900 text-white rounded-md cursor-pointer font-OP text-md flex justify-start">
                 <input className="hidden" type="file" name="file" accept="text/plain" onChange={changeHandler}/>
                 Select Text File
@@ -145,7 +145,7 @@ export default function Compress() {
               </div> 
               
             </div>
-            {isFilePicked && <p className="mt-4 font-OP text-violet-400 ">Currently Selected: {selectedFile.name}</p>}
+            {isFilePicked && <p className="font-OP text-violet-400 pb-12">Currently Selected: {selectedFile.name}</p>}
   
         {!webcam && <a onClick={handleWebcamASCII} className="cursor-pointer border-2 border-indigo-900 px-8 py-4 mt-8 rounded-md text-indigo-900">Enable Webcam</a>}
         {webcam && <a onClick={stopWebcam} className="cursor-pointer border-2 bg-indigo-900 px-8 py-4 mt-8 rounded-md text-white">Disable Webcam</a>}
