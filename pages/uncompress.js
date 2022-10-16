@@ -162,7 +162,7 @@ export default function Uncompress() {
         <div className="text-center">
           <p className="my-8 text-5xl font-poppins font-bold text-indigo-900 pt-6">Upload your text for <span className="">Uncompression</span></p>
           <p className="text-center mb-2 text-xl font-OP mx-12 font-md text-indigo-900">Submit a compressed text file containing your video content.</p>
-          <p className="text-center mb-8 text-xl font-OP mx-12 font-md text-indigo-900"> We'll upscale it using ML so you won't miss a thing!</p>
+          <p className="text-center mb-8 text-xl font-OP mx-12 font-md text-indigo-900"> We&apos;ll upscale it using ML so you won&apos;t miss a thing!</p>
           <div className="flex justify-center mb-8">
             <Image src="/textart1.svg"  height={300} width={300}/>
           </div>
@@ -176,12 +176,12 @@ export default function Uncompress() {
                 isFilePicked ?
                 <div>
                   <a onClick={() => handleFileSubmit('text_to_video')} className="shadow-md hover:shadow border-2 px-8 py-4 bg-indigo-900 rounded-md cursor-pointer font-OP text-md text-white">Submit</a>
-                  <a onClick={() => handleFileSubmit('text_to_video_color')} className="shadow-md hover:shadow border-2 px-8 py-4 ml-8 bg-indigo-900 rounded-md cursor-pointer font-OP text-md text-white">Submit with color</a>
+                  <a onClick={() => handleFileSubmit('text_to_video_color')} className="shadow-md hover:shadow border-2 px-8 py-4 ml-8 bg-indigo-900 rounded-md cursor-pointer font-OP text-md text-white">Submit for color</a>
                 </div>
                 :
                 <div>
                   <a onClick={() => handleFileSubmit('text_to_video')} className="shadow-md hover:shadow border-2 border-indigo-900 px-8 py-4 rounded-md font-OP text-md cursor-pointer">Submit</a>
-                  <a onClick={() => handleFileSubmit('text_to_video_color')} className="shadow-md hover:shadow border-2 px-8 py-4 ml-8 border-indigo-900 rounded-md cursor-pointer font-OP text-md">Submit with color</a>
+                  <a onClick={() => handleFileSubmit('text_to_video_color')} className="shadow-md hover:shadow border-2 px-8 py-4 ml-8 border-indigo-900 rounded-md cursor-pointer font-OP text-md">Submit for color</a>
                 </div>
               }
             </div>
