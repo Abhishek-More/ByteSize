@@ -2,8 +2,10 @@ import { useState } from "react";
 import Link from 'next/link'
 import Image from "next/image";
 import Script from 'next/script'
+import { useToast } from '@chakra-ui/react'
 
 export default function Compress() {
+  const toast = useToast()
   const [selectedFile, setSelectedFile] = useState();
 	const [isFilePicked, setIsFilePicked] = useState(false);
   const [webcam, setWebcam] = useState(false)
@@ -51,18 +53,28 @@ export default function Compress() {
   }
 
 	const handleFileSubmit = () => {
- 
+  
     if(!isFilePicked || selectedFile.type != "text/plain") {
-      //TODO: Add an error toast here!
-      console.log("Select a text file!")
+          toast({
+            title: 'Invalid Input',
+            description: "Please choose a valid video file!",
+            status: 'error',
+            position : 'bottom-right',
+            duration: 3000,
+            isClosable: true,
+          })
+      return
     }
     
     let data = ""
     const reader = new FileReader()
+    console.log('hello')
     reader.onload = async (e) => { 
       data = e.target.result;
       console.log(data);
       let display = document.getElementById("text-display");
+      
+      
       let arr = splitToSubstrings(data, 7260)
       console.log(arr.length)
       let iter = 0;
@@ -75,11 +87,11 @@ export default function Compress() {
         display.innerHTML = content;
         iter += 1;
       }, 33)
-    };
+    }
     reader.readAsText(selectedFile)
     console.log(data)
 	};
-  
+
   function splitToSubstrings(str, n) {
     const arr = [];
   
@@ -118,17 +130,17 @@ export default function Compress() {
         <div className=''>
           <div className="font-poppins font-bold text-indigo-900 pt-12 w-3/4 text-5xl">View Video</div>
           <div className = 'text-xl font-OP font-md text-indigo-900 w-3/4 whitespace-pre-line pt-8'> Upload a compressed text file here to view it's contents... </div>
-          <div className="flex space-x-8 items-center pt-12 pb-16">
-              <label className=" px-8 py-4 bg-indigo-900 text-white rounded-md cursor-pointer font-OP text-md flex justify-start">
+          <div className="flex space-x-8 items-center pt-12">
+              <label className="shadow-md hover:shadow border-2 px-8 py-4 bg-indigo-900 text-white rounded-md cursor-pointer font-OP text-md flex justify-start">
                 <input className="hidden" type="file" name="file" accept="text/plain" onChange={changeHandler}/>
                 Select Text File
               </label>
               <div className="">
                 {
                   isFilePicked ?
-                  <a onClick={handleFileSubmit} className="px-8 py-4 border-2 border-indigo-900 bg-indigo-900 rounded-md cursor-pointer font-OP text-md text-white">Submit</a>
+                  <a onClick={handleFileSubmit} className="shadow-md hover:shadow px-8 py-4 border-2 border-indigo-900 bg-indigo-900 rounded-md cursor-pointer font-OP text-md text-white">Submit</a>
                   :
-                  <a className="border-2 border-indigo-900 px-8 py-4 rounded-md text-indigo-900">Submit</a>
+                  <a onClick={handleFileSubmit} className="shadow-md hover:shadow border-2 border-indigo-900 px-8 py-4 rounded-md text-indigo-900">Submit</a>
                 }
               </div> 
               

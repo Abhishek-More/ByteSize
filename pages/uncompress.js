@@ -155,32 +155,36 @@ export default function Uncompress() {
     <div 
       className = 'h-1 bg-gradient-to-r from-purple-500 to-pink-500'>
     </div>
-
+    
+    <div className="grid pt-16 place-items-center">
+    <div className='box-border h-[700px] w-[1200px] border-8 border-indigo-50 rounded-md justify-center'> 
       <div className={`flex justify-center ${loading ? "blurred" : "unblurred"}`}>
         <div className="text-center">
-          <p className="my-8 text-5xl font-poppins font-bold text-indigo-900 pt-16">Upload your Text for Uncompression</p>
+          <p className="my-8 text-5xl font-poppins font-bold text-indigo-900 pt-6">Upload your text for <span className="">Uncompression</span></p>
           <p className="text-center mb-2 text-xl font-OP mx-12 font-md text-indigo-900">Submit a compressed text file containing your video content.</p>
           <p className="text-center mb-8 text-xl font-OP mx-12 font-md text-indigo-900"> We'll upscale it using ML so you won't miss a thing!</p>
           <div className="flex justify-center mb-8">
-            <Image src="/textart.svg"  height={300} width={300}/>
+            <Image src="/textart1.svg"  height={300} width={300}/>
           </div>
           <div className="flex justify-center space-x-8 items-center">
-            <label className=" px-8 py-4 bg-indigo-900 rounded-md cursor-pointer font-OP font-lg text-white">
+            <label className="shadow-md hover:shadow border-2 px-8 py-4 bg-indigo-900 rounded-md cursor-pointer font-OP font-lg text-white">
               <input className="hidden" type="file" name="file" accept="text/plain" onChange={changeHandler}/>
               Select Text File
             </label> 
             <div className="">
               {
                 isFilePicked ?
-                <a onClick={handleFileSubmit} className="px-8 py-4 bg-indigo-900 rounded-md cursor-pointer font-OP text-md text-white">Submit</a>
+                <a onClick={handleFileSubmit} className="shadow-md hover:shadow border-2 px-8 py-4 bg-indigo-900 rounded-md cursor-pointer font-OP text-md text-white">Submit</a>
                 :
-                <a onClick={handleFileSubmit} className="border-2 border-indigo-900 px-8 py-4 rounded-md font-OP text-md">Submit</a>
+                <a onClick={handleFileSubmit} className="shadow-md hover:shadow border-2 border-indigo-900 px-8 py-4 rounded-md font-OP text-md">Submit</a>
               }
             </div>
           </div>
           {isFilePicked && <p className="mt-4 font-OP text-violet-400">Currently Selected: {selectedFile.name}</p>}
         </div>
       </div>
+    </div>
+    </div>
     </div>
   )
 }

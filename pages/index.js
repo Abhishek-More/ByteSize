@@ -23,7 +23,7 @@ export default function Home() {
       </div>
       <div className = 'h-1 bg-gradient-to-r from-purple-500 to-pink-500'>
       </div>
-        <p className='text-[70px] text-center pt-64 font-poppins font-medium text-indigo-900 linear-wipe'>Redefining Video Storage.</p>
+        <p className='text-[70px] text-center pt-60 font-poppins font-medium text-indigo-900 linear-wipe'>Redefining Video Storage.</p>
         <p className='text-center text-2xl pt-4 font-semibold font-OP text-indigo-900'>ASCII-based video compression</p>
       <div className= 'flex justify-center space-x-10 pt-24'>
       <Link href="/compress">
