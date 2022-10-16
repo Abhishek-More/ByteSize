@@ -16,24 +16,23 @@ export default function Home() {
           <Image
         src="/Logo.png"
         alt="Picture of the author"
-        width={70}
-        height={70}
+        width={60}
+        height={60}
         />
-          <p className='text-3xl font-poppins px-2'>ByteSize</p>
+          <p className='text-2xl font-poppins px-1 text-indigo-900'>  <span class="font-bold">Byte</span><span className = "font-light">Size</span></p>
       </div>
-        <a className='text-lg font-OP'>View on Github</a>
+        <a className='text-lg font-OP text-indigo-900 bg-pink-200 px-6 py-2 rounded-full' href="https://github.com/Abhishek-More/ByteSize">View on Github</a>
       </div>
-
       <div className = 'h-1 bg-gradient-to-r from-purple-500 to-pink-500'>
       </div>
 
-        <p className='text-[70px] text-center pt-64 font-poppins font-medium'>Redefining Video Storage.</p>
-        <p className='text-center text-2xl pt-4 font-semibold font-OP'>ACSII-based video compression</p>
+        <p className='text-[70px] text-center pt-64 font-poppins font-medium text-indigo-900'>Redefining Video Storage.</p>
+        <p className='text-center text-2xl pt-4 font-semibold font-OP text-indigo-900'>ACSII-based video compression</p>
    
       
       <div className= 'flex justify-center space-x-10 pt-24'>
-        <button className = 'shadow-md hover:shadow border-4 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg'>Compress Video</button>
-         <button className = 'shadow-md hover:shadow border-4 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg'>View Video</button>
+        <button className = 'shadow-md hover:shadow border-2 border-indigo-100 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg text-indigo-900'>Compress Video</button>
+         <button className = 'shadow-md hover:shadow border-2 border-indigo-100 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg text-indigo-900'>View Video</button>
       </div>
       
       <div className= 'bottom-0 absolute w-screen translate-y-24 opacity-75'>
