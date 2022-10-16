@@ -89,18 +89,26 @@ export default function Compress() {
                   :
                   <a className="border-2 border-indigo-900 px-8 py-4 rounded-md text-indigo-900">Submit</a>
                 }
-              </div>
+              </div> 
+              
             </div>
             {isFilePicked && <p className="mt-4 font-OP text-violet-400 ">Currently Selected: {selectedFile.name}</p>}
-          </div>
+  
+    <div className="opacity-10 pt-20">
+        <Image
+        src="/Image.png"
+        alt="Picture of the author"
+        width={700}
+        height={260}
+        />
+    </div>
+    </div>
       <div className='box-border h-[600px] w-[500px] p-4 border-4 border-pink-500 rounded-lg translate-y-6 translate-x-6'>
         <div className="canvas flex flex-shrink-0 pl- mb-8 h-[600px] w-[500px] bg-black rounded-lg -translate-y-12 -translate-x-12">
             <p id="text-display"></p>
         </div> 
         </div>
       </div>          
-        
-      
 
 
     </div>
