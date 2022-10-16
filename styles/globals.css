@@ -19,6 +19,19 @@ a {
   text-decoration: none;
 }
 
+#text-display {
+  white-space: pre-wrap;
+  display: block;
+  text-align: center;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  font-family: monospace;
+  font-size: 6px;
+  color: white;
+  background-color: black;
+}
+
 * {
   box-sizing: border-box;
   background-color: #ffffff;
