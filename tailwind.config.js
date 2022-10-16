@@ -7,9 +7,8 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      mont: ['Montserrat Alternates', 'sans-serif'],
       poppins: ['Poppins', 'sans-serif'],
-      barlow: ['Barlow', 'sans-serif']
+      OP: ['Open Sans', 'sans-serif']
     }
   },
   plugins: [],
