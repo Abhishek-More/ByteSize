@@ -11,7 +11,7 @@ export default function Home() {
 
     <div>
 
-      <div className='flex items-center justify-between pt-8 px-10 pb-8 '>
+      <div className='flex items-center justify-between py-2 px-10'>
       <div className = 'flex items-center '>
           <Image
         src="/Logo.png"
@@ -19,7 +19,7 @@ export default function Home() {
         width={70}
         height={70}
         />
-          <p className='text-3xl font-poppins'>ByteSize</p>
+          <p className='text-3xl font-poppins px-2'>ByteSize</p>
       </div>
         <a className='text-lg font-OP'>View on Github</a>
       </div>
