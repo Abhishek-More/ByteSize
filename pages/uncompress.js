@@ -9,15 +9,15 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 
 const config = {
   bucketName: 'bytesize',
-  dirName: 'videos', 
+  dirName: 'texts', 
   region: 'us-east-2',
-  accessKeyId: process.env.ACCESS_KEY_ID,
-  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+  accessKeyId: process.env.NEXT_PUBLIC_ACCESS_KEY_ID,
+  secretAccessKey: process.env.NEXT_PUBLIC_SECRET_ACCESS_KEY,
 }
 
 const s3 = new S3(config);
 
-export default function Compress() {
+export default function Uncompress() {
   const toast = useToast()
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("")
@@ -28,8 +28,8 @@ export default function Compress() {
 
 
   AWS.config.update({
-    accessKeyId: process.env.ACCESS_KEY_ID,
-    secretAccessKey: process.env.SECRET_ACCESS_KEY,
+    accessKeyId: process.env.NEXT_PUBLIC_ACCESS_KEY_ID,
+    secretAccessKey: process.env.NEXT_PUBLIC_SECRET_ACCESS_KEY,
   });
 
 
@@ -41,10 +41,9 @@ export default function Compress() {
 	const handleFileSubmit = () => {
  
     if(!isFilePicked) {
-      console.log("AAA")
       toast({
         title: 'Invalid Input',
-        description: "Please choose a valid video file!",
+        description: "Please choose a valid text file!",
         status: 'error',
         position : 'bottom-right',
         duration: 3000,
@@ -55,24 +54,24 @@ export default function Compress() {
     }
 
     setLoading(true)
-    setLoadingText("Uploading Video to S3")
+    setLoadingText("Uploading Text to S3")
 
     s3.uploadFile(selectedFile)
     .then(data => {
       setSelectedFile(null)
       setIsFilePicked(false)
-      setLoadingText("Converting Video to Text")
+      setLoadingText("Converting Text to Video (this will take a while)")
       let key = data.key
       console.log(key)
       axios({
         method: 'post',
-        url: 'http://localhost:5000/video_to_text',
+        url: 'http://localhost:5000/text_to_video',
         data: {
-          bucketVideoKey: key,
+          bucketTextKey: key,
         }
       }).then(function (response) {
-        key = response.data.bucketTextLocation;
-        setLoadingText("Downloading Text File")
+        key = response.data.bucketReconstructedVideoLocation;
+        setLoadingText("Downloading Video File")
         handleDownload(key);
         setLoading(false)
       });
@@ -117,10 +116,10 @@ export default function Compress() {
         if (err) {
           console.log(err, err.stack);
         } else {
-          let csvBlob = new Blob([data.Body.toString()], {
-            type: 'text/plain',
+          let videoBlob = new Blob([data.Body], {
+            type: 'video/mp4',
           });
-          downloadBlob(csvBlob, `${template}`);
+          downloadBlob(videoBlob, `${template}`);
         }
       });
   }
@@ -159,15 +158,16 @@ export default function Compress() {
 
       <div className={`flex justify-center ${loading ? "blurred" : "unblurred"}`}>
         <div className="text-center">
-          <p className="my-8 text-5xl font-poppins font-bold text-indigo-900 pt-16">Upload your video for compression</p>
-          <p className="mb-8 text-xl font-OP font-md text-indigo-900">Submit any video and get a compressed text file containing your video content.</p>
+          <p className="my-8 text-5xl font-poppins font-bold text-indigo-900 pt-16">Upload your Text for Uncompression</p>
+          <p className="text-center mb-2 text-xl font-OP mx-12 font-md text-indigo-900">Submit a compressed text file containing your video content.</p>
+          <p className="text-center mb-8 text-xl font-OP mx-12 font-md text-indigo-900"> We'll upscale it using ML so you won't miss a thing!</p>
           <div className="flex justify-center mb-8">
-            <Image src="/videoart3.svg"  height={300} width={300}/>
+            <Image src="/textart.svg"  height={300} width={300}/>
           </div>
           <div className="flex justify-center space-x-8 items-center">
             <label className=" px-8 py-4 bg-indigo-900 rounded-md cursor-pointer font-OP font-lg text-white">
-              <input className="hidden" type="file" name="file" accept="video/*" onChange={changeHandler}/>
-              Select Video File
+              <input className="hidden" type="file" name="file" accept="text/plain" onChange={changeHandler}/>
+              Select Text File
             </label> 
             <div className="">
               {

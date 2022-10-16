@@ -50,7 +50,6 @@ export default function Compress() {
   
     return arr;
   }
-  
 
   return (
     <div className= ''>
@@ -74,10 +73,7 @@ export default function Compress() {
       className = 'h-1 bg-gradient-to-r from-purple-500 to-pink-500'>
     </div>
 
-
-
-
-    <div className="flex justify-between px-40 py-24">
+    <div className="flex justify-between px-40 py-24 unblurred">
         <div className=''>
           <div className="font-poppins font-bold text-indigo-900 pt-12 w-3/4 text-5xl">View Video</div>
           <div className = 'text-xl font-OP font-md text-indigo-900 w-3/4 whitespace-pre-line pt-8'> Upload a compressed text file here to view it's contents... </div>

@@ -29,10 +29,13 @@ export default function Home() {
         <p className='text-center text-2xl pt-4 font-semibold font-OP text-indigo-900'>ASCII-based video compression</p>
       <div className= 'flex justify-center space-x-10 pt-24'>
       <Link href="/compress">
-        <button className = 'shadow-md hover:shadow border-2 border-indigo-100 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg text-indigo-900'>Compress Video</button>
+        <button className='shadow-md hover:shadow border-2 border-indigo-100 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg text-indigo-900'>Compress Video</button>
          </Link>
         <Link href="/viewer">
-          <button className = 'shadow-md hover:shadow border-2 border-indigo-100 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg text-indigo-900'>View Video</button>
+          <button className='shadow-md hover:shadow border-2 border-indigo-100 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg text-indigo-900'>View Video</button>
+        </Link>
+        <Link href="/uncompress">
+          <button className='shadow-md hover:shadow border-2 border-indigo-100 rounded-lg w-[250px] h-[75px] font-OP font-semibold text-lg text-indigo-900'>Uncompress Text</button>
         </Link>
       </div>
       
