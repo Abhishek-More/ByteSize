@@ -86,7 +86,7 @@ export default function Compress() {
         let content = arr[iter];
         display.innerHTML = content;
         iter += 1;
-      }, 33)
+      }, 15)
     }
     reader.readAsText(selectedFile)
     console.log(data)

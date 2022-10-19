@@ -15,7 +15,7 @@
     let characters = asciify(frame);
     return characters
   }
-  setInterval(processVideo, 15)
+  setInterval(processVideo,5)
 
   function resizeImg(img, newWidth) {
     let newMat = new cv.Mat();
